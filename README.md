@@ -31,7 +31,9 @@ define('sub/folder/Example', ['logging'], function(logging)
 
 	Example.prototype.initializeEventListeners = function()
 	{
+		var that = this;
 
+		// use that to access variables instead of .bind on each function
 	};
 
 	return Example;
@@ -46,7 +48,7 @@ So you might call:
 
 ``` javascript
 this.logError('Hai!');
-\\ [Example] Error: Hai!
+// [Example] Error: Hai!
 ```
 
 ## Defining functions
@@ -102,7 +104,7 @@ ClassName.prototype = {
 ```
 
 This will override the entire prototype. If you want to disable the myFunction2 for a second, you have to mind the `,` of
-myFunction, like in the next example.
+myFunction. This is way easier if you assign each function on its own to the prototype, like in the next example.
 
 Good:
 ``` javascript
