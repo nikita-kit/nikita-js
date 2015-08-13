@@ -69,6 +69,10 @@ Example.prototype.initializeEventListeners = function()
 }
 ```
 
+References:
+
+* <http://jsforallof.us/2014/07/08/var-that-this/>
+
 ## Why don't you use `self` as reference to the function?
 
 We decided to use `that` as reference, because `self` is already pre-defined as `window`. So if you forget to define
