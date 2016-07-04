@@ -123,4 +123,4 @@ If you're asking yourself _»Why not …?«_ have a look at my [WHY-NOT.md](http
 
 ## License
 
-nikita.css is licensed under [CC0](http://creativecommons.org/publicdomain/zero/1.0/): Public Domain Dedication.
+nikita.js is licensed under [CC0](http://creativecommons.org/publicdomain/zero/1.0/): Public Domain Dedication.
