@@ -12,9 +12,16 @@ If you're interested in CSS patterns, code snippets and best practices, try [nik
 
 This part of nikita called `nikita.js` describes our prefered Javascript conding style. 
 This guide is mainly based on the the [airbnb style guide](https://github.com/airbnb/javascript) which offers a great rule set for modern javascript coding. 
-However, we changed small things like indention, added a few rules and changed the order a bit.
+However, we changed small things:
+ * indent with 4 spaces
+ * max line length of 150 characters
+ * don't use .bind(this)
+ * added a few rules (basic module, logging)
+ * removed some minor rules
+ * changed the order to have important sections on top
 
 
+<a name="table-of-contents"></a>
 ## Style Guide Contents
 
   1. [Modules](#modules)
@@ -239,7 +246,7 @@ However, we changed small things like indention, added a few rules and changed t
 
     ```javascript
     // bad
-    function tgl() {
+    function tglBtn() {
         // ...
     }
 
@@ -509,12 +516,12 @@ However, we changed small things like indention, added a few rules and changed t
 
     // bad
     function fight () {
-      console.log ('Swooosh!');
+        console.log ('Swooosh!');
     }
 
     // good
     function fight() {
-      console.log('Swooosh!');
+        console.log('Swooosh!');
     }
     ```
 
