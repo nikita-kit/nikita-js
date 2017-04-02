@@ -1,0 +1,44 @@
+{
+    "name": "eslint-config-nikita",
+    "version": "1.0.0",
+    "license": "CC0-1.0",
+    "homepage": "https://github.com/nikita-kit/nikita-js",
+    "author": {
+        "name": "",
+        "email": "",
+        "homepage": "https://github.com/nikita-kit"
+    },
+    "description": "ESLint config following the nikita JavaScript coding guidelines",
+    "keywords": [
+        "js",
+        "eslint",
+        "eslintconfig",
+        "config",
+        "javascript",
+        "guidelines",
+        "styleguide"
+    ],
+    "main": "index.js",
+    "scripts": {
+        "lint": "eslint .",
+        "find-rules": "eslint-find-rules --unused"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/nikita-kit/nikita-js"
+    },
+    "devDependencies": {
+        "eslint": "^3.19.0",
+        "eslint-find-rules": "^1.14.3",
+        "eslint-plugin-import": "^2.2.0",
+        "eslint-plugin-promise": "^3.5.0"
+    },
+    "peerDependencies": {
+        "eslint": "^3.18.0",
+        "eslint-plugin-import": "^2.2.0",
+        "eslint-plugin-promise": "^3.5.0"
+    },
+    "engines": {
+        "node": ">= 4"
+    }
+}
