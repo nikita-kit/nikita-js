@@ -22,9 +22,13 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+. It
 2. Add `"extends": "nikita"` to your .eslintrc or reference index.js as config in your Grunt eslint task.
 
 
+## Version
+
+The version of this package equals the nikita-js version.
+
+
 ## more
 
 You can make sure this module lints with itself using `npm run lint`.
 
 See [Nikita JavaScript Styleguide](https://github.com/nikita-kit/nikita-js) for more information.
-

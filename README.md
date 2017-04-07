@@ -775,17 +775,25 @@ However, we changed small things:
         .fail(() => console.log('You have failed this city.'));
     ```
 
-  <a name="whitespace--variables"></a>
-  - [3.13](#whitespace--variables) Do not align variable declarations. eslint: [`one-var`](http://eslint.org/docs/rules/one-var) 
+  <a name="whitespace--align"></a>
+  - [3.13](#whitespace--align) Do not align variable declarations or properties. eslint: [`no-multi-spaces`](http://eslint.org/docs/rules/no-multi-spaces)
   
     ```javascript
     // bad
     const foo      = "some content";
     const otherFoo = "some other content";
+    const bar = {
+        test:       123,
+        myLongTest: 456
+    }
 
     // good
     const foo = "some content";
     const otherFoo = "some other content";
+    const bar = {
+        test: 123,
+        myLongTest: 456
+    }
     ```
 
 **[⬆ back to top](#table-of-contents)**
