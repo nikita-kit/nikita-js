@@ -33,7 +33,7 @@ module.exports = {
 
     // ensure imports point to files/modules that can be resolved
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unresolved.md
-        'import/no-unresolved': ['error', { commonjs: true, caseSensitive: true }],
+        'import/no-unresolved': ['off', { commonjs: true, caseSensitive: true }],
 
     // ensure named imports coupled with named exports
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/named.md#when-not-to-use-it
@@ -83,6 +83,7 @@ module.exports = {
                 '**/gulpfile.js', // gulp config
                 '**/gulpfile.*.js', // gulp config
                 '**/Gruntfile', // grunt config
+                'grunt/**', // grunt config
             ],
             optionalDependencies: false,
         }],
@@ -109,7 +110,7 @@ module.exports = {
 
     // disallow non-import statements appearing before import statements
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md
-        'import/first': ['error', 'absolute-first'],
+        'import/first': 'error',
 
     // disallow non-import statements appearing before import statements
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/imports-first.md
@@ -126,7 +127,7 @@ module.exports = {
 
     // Ensure consistent use of file extension within the import path
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
-        'import/extensions': ['error', 'always', {
+        'import/extensions': ['warn', 'always', {
             js: 'never',
             jsx: 'never',
         }],
@@ -145,7 +146,7 @@ module.exports = {
 
     // Require modules with a single export to use a default export
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md
-        'import/prefer-default-export': 'error',
+        'import/prefer-default-export': 'warn',
 
     // Restrict which files can be imported in a given folder
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-restricted-paths.md

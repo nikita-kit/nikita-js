@@ -9,6 +9,7 @@
     },
     "description": "ESLint config following the nikita JavaScript coding guidelines",
     "keywords": [
+        "nikita",
         "js",
         "eslint",
         "eslintconfig",
@@ -19,22 +20,22 @@
     ],
     "main": "index.js",
     "scripts": {
-        "lint": "eslint .",
-        "find-rules": "eslint-find-rules --unused"
+        "lint": "eslint . --env node",
+        "find-rules": "eslint-find-rules --unused || true"
     },
     "repository": {
         "type": "git",
         "url": "https://github.com/nikita-kit/nikita-js"
     },
     "devDependencies": {
-        "eslint": "^3.19.0",
-        "eslint-find-rules": "^1.14.3",
-        "eslint-plugin-import": "^2.2.0",
+        "eslint": "^4.3.0",
+        "eslint-find-rules": "^3.1.1",
+        "eslint-plugin-import": "^2.7.0",
         "eslint-plugin-promise": "^3.5.0"
     },
     "peerDependencies": {
-        "eslint": "^3.18.0",
-        "eslint-plugin-import": "^2.2.0",
+        "eslint": "^4.3.0",
+        "eslint-plugin-import": "^2.7.0",
         "eslint-plugin-promise": "^3.5.0"
     },
     "engines": {

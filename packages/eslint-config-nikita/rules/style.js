@@ -322,7 +322,7 @@ module.exports = {
         'operator-linebreak': 'off',
 
     // enforce padding within blocks
-        'padded-blocks': ['error', 'never'],
+        'padded-blocks': 'off',
 
     // require quotes around object literal property names
     // http://eslint.org/docs/rules/quote-props.html

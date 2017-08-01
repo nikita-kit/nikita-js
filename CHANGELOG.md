@@ -1,3 +1,10 @@
+#dev
+
+* updated `eslint` to 4.3.0
+* updated `eslint-plugin-import` to 2.7.0
+* removed rules `padded-blocks` and `import/no-unresolved`
+* relax rules `no-unused-vars`, `import/prefer-default-export`, `import/extensions` and `import/first`
+
 # 1.0.0 (2017/04/01)
 
 * replaced content by airbnb style guide with modifications
