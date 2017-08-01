@@ -4,6 +4,7 @@
 * updated `eslint-plugin-import` to 2.7.0
 * removed rules `padded-blocks` and `import/no-unresolved`
 * relax rules `no-unused-vars`, `import/prefer-default-export`, `import/extensions` and `import/first`
+* added rules `template-tag-spacing`, `switch-colon-spacing`, `semi-style`, `array-bracket-newline` and `for-direction`
 
 # 1.0.0 (2017/04/01)
 
