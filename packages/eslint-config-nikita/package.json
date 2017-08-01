@@ -22,7 +22,7 @@
     "scripts": {
         "lint": "eslint . --env node",
         "lint-fix": "eslint . --env node --fix",
-        "find-rules": "eslint-find-rules --unused || true"
+        "find-rules": "eslint-find-rules --unused --no-error"
     },
     "repository": {
         "type": "git",

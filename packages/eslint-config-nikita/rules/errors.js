@@ -1,13 +1,10 @@
 module.exports = {
     rules: {
-        // require trailing commas in multiline object literals
-        'comma-dangle': ['error', {
-            arrays: 'always-multiline',
-            objects: 'always-multiline',
-            imports: 'always-multiline',
-            exports: 'always-multiline',
-            functions: 'always-multiline',
-        }],
+        // Enforce “for” loop update clause moving the counter in the right direction
+        'for-direction': 'error',
+
+        // Enforces that a return statement is present in property getters
+        'getter-return': 'off',
 
         // Disallow await inside of loops
         // http://eslint.org/docs/rules/no-await-in-loop
@@ -56,11 +53,15 @@ module.exports = {
 
         // disallow unnecessary parentheses
         // http://eslint.org/docs/rules/no-extra-parens
-        'no-extra-parens': ['off', 'all', {
-            conditionalAssign: true,
-            nestedBinaryExpressions: false,
-            returnAssign: false,
-        }],
+        'no-extra-parens': [
+            'off',
+            'all',
+            {
+                conditionalAssign: true,
+                nestedBinaryExpressions: false,
+                returnAssign: false,
+            },
+        ],
 
         // disallow unnecessary semicolons
         'no-extra-semi': 'error',

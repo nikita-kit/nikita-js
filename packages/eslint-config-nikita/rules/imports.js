@@ -6,9 +6,7 @@ module.exports = {
         ecmaVersion: 6,
         sourceType: 'module',
     },
-    plugins: [
-        'import',
-    ],
+    plugins: ['import'],
 
     settings: {
         'import/resolver': {
@@ -16,16 +14,9 @@ module.exports = {
                 extensions: ['.js', '.json'],
             },
         },
-        'import/extensions': [
-            '.js',
-            '.jsx',
-        ],
-        'import/core-modules': [
-        ],
-        'import/ignore': [
-            'node_modules',
-            '\\.(scss|css|ejs|hbs|twig|svg|json)$',
-        ],
+        'import/extensions': ['.js', '.jsx'],
+        'import/core-modules': [],
+        'import/ignore': ['node_modules', '\\.(scss|css|ejs|hbs|twig|svg|json)$'],
     },
 
     rules: {
@@ -67,26 +58,29 @@ module.exports = {
         // Forbid the use of extraneous packages
         // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
         // paths are treated both as absolute paths, and relative to process.cwd()
-        'import/no-extraneous-dependencies': ['off', {
-            devDependencies: [
-                'test/**', // tape, common npm pattern
-                'tests/**', // also common npm pattern
-                'spec/**', // mocha, rspec-like pattern
-                '**/__tests__/**', // jest pattern
-                'test.js', // repos with a single test file
-                'test-*.js', // repos with multiple top-level test files
-                '**/*.test.js', // tests where the extension denotes that it is a test
-                '**/*.spec.js', // tests where the extension denotes that it is a test
-                '**/webpack.config.js', // webpack config
-                '**/webpack.config.*.js', // webpack config
-                '**/rollup.config.js', // rollup config
-                '**/gulpfile.js', // gulp config
-                '**/gulpfile.*.js', // gulp config
-                '**/Gruntfile', // grunt config
-                'grunt/**', // grunt config
-            ],
-            optionalDependencies: false,
-        }],
+        'import/no-extraneous-dependencies': [
+            'off',
+            {
+                devDependencies: [
+                    'test/**', // tape, common npm pattern
+                    'tests/**', // also common npm pattern
+                    'spec/**', // mocha, rspec-like pattern
+                    '**/__tests__/**', // jest pattern
+                    'test.js', // repos with a single test file
+                    'test-*.js', // repos with multiple top-level test files
+                    '**/*.test.js', // tests where the extension denotes that it is a test
+                    '**/*.spec.js', // tests where the extension denotes that it is a test
+                    '**/webpack.config.js', // webpack config
+                    '**/webpack.config.*.js', // webpack config
+                    '**/rollup.config.js', // rollup config
+                    '**/gulpfile.js', // gulp config
+                    '**/gulpfile.*.js', // gulp config
+                    '**/Gruntfile', // grunt config
+                    'grunt/**', // grunt config
+                ],
+                optionalDependencies: false,
+            },
+        ],
 
         // Forbid mutable exports
         // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md
@@ -127,18 +121,25 @@ module.exports = {
 
         // Ensure consistent use of file extension within the import path
         // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
-        'import/extensions': ['warn', 'always', {
-            js: 'never',
-            jsx: 'never',
-        }],
+        'import/extensions': [
+            'warn',
+            'always',
+            {
+                js: 'never',
+                jsx: 'never',
+            },
+        ],
 
         // Enforce a convention in module import order
         // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
         // TODO: enable?
-        'import/order': ['off', {
-            groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-            'newlines-between': 'never',
-        }],
+        'import/order': [
+            'off',
+            {
+                groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+                'newlines-between': 'never',
+            },
+        ],
 
         // Require a newline after the last import/require in a group
         // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/newline-after-import.md
@@ -166,9 +167,12 @@ module.exports = {
 
         // prevent importing the submodules of other modules
         // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-internal-modules.md
-        'import/no-internal-modules': ['off', {
-            allow: [],
-        }],
+        'import/no-internal-modules': [
+            'off',
+            {
+                allow: [],
+            },
+        ],
 
         // Warn if a module could be mistakenly parsed as a script by a consumer
         // leveraging Unambiguous JavaScript Grammar
@@ -189,5 +193,9 @@ module.exports = {
         // Prevent importing the default as if it were named
         // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-default.md
         'import/no-named-default': 'error',
+
+        // Reports if a module's default export is unnamed
+        // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-anonymous-default-export.md
+        'import/no-anonymous-default-export': 'off',
     },
 };

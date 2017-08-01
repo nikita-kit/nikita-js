@@ -15,9 +15,12 @@ module.exports = {
 
         // enforce that class methods use "this"
         // http://eslint.org/docs/rules/class-methods-use-this
-        'class-methods-use-this': ['off', {
-            exceptMethods: [],
-        }],
+        'class-methods-use-this': [
+            'off',
+            {
+                exceptMethods: [],
+            },
+        ],
 
         // require return statements to either always or never specify values
         'consistent-return': 'error',
@@ -61,13 +64,12 @@ module.exports = {
 
         // disallow empty functions, except for standalone funcs/arrows
         // http://eslint.org/docs/rules/no-empty-function
-        'no-empty-function': ['error', {
-            allow: [
-                'arrowFunctions',
-                'functions',
-                'methods',
-            ],
-        }],
+        'no-empty-function': [
+            'error',
+            {
+                allow: ['arrowFunctions', 'functions', 'methods'],
+            },
+        ],
 
         // disallow empty destructuring patterns
         // http://eslint.org/docs/rules/no-empty-pattern
@@ -103,12 +105,15 @@ module.exports = {
 
         // disallow implicit type conversions
         // http://eslint.org/docs/rules/no-implicit-coercion
-        'no-implicit-coercion': ['off', {
-            boolean: false,
-            number: true,
-            string: true,
-            allow: [],
-        }],
+        'no-implicit-coercion': [
+            'off',
+            {
+                boolean: false,
+                number: true,
+                string: true,
+                allow: [],
+            },
+        ],
 
         // disallow var and named functions in global scope
         // http://eslint.org/docs/rules/no-implicit-globals
@@ -134,12 +139,15 @@ module.exports = {
 
         // disallow magic numbers
         // http://eslint.org/docs/rules/no-magic-numbers
-        'no-magic-numbers': ['off', {
-            ignore: [],
-            ignoreArrayIndexes: true,
-            enforceConst: true,
-            detectObjects: false,
-        }],
+        'no-magic-numbers': [
+            'off',
+            {
+                ignore: [],
+                ignoreArrayIndexes: true,
+                enforceConst: true,
+                detectObjects: false,
+            },
+        ],
 
         // disallow use of multiple spaces
         'no-multi-spaces': 'error',
@@ -166,19 +174,22 @@ module.exports = {
         // disallow reassignment of function parameters
         // disallow parameter object manipulation except for specific exclusions
         // rule: http://eslint.org/docs/rules/no-param-reassign.html
-        'no-param-reassign': ['off', {
-            props: true,
-            ignorePropertyModificationsFor: [
-                'acc', // for reduce accumulators
-                'e', // for e.returnvalue
-                'ctx', // for Koa routing
-                'req', // for Express requests
-                'request', // for Express requests
-                'res', // for Express responses
-                'response', // for Express responses
-                '$scope', // for Angular 1 scopes
-            ],
-        }],
+        'no-param-reassign': [
+            'off',
+            {
+                props: true,
+                ignorePropertyModificationsFor: [
+                    'acc', // for reduce accumulators
+                    'e', // for e.returnvalue
+                    'ctx', // for Koa routing
+                    'req', // for Express requests
+                    'request', // for Express requests
+                    'res', // for Express responses
+                    'response', // for Express responses
+                    '$scope', // for Angular 1 scopes
+                ],
+            },
+        ],
 
         // disallow usage of __proto__ property
         'no-proto': 'error',
@@ -188,21 +199,27 @@ module.exports = {
 
         // disallow certain object properties
         // http://eslint.org/docs/rules/no-restricted-properties
-        'no-restricted-properties': ['error', {
-            object: 'arguments',
-            property: 'callee',
-            message: 'arguments.callee is deprecated',
-        }, {
-            property: '__defineGetter__',
-            message: 'Please use Object.defineProperty instead.',
-        }, {
-            property: '__defineSetter__',
-            message: 'Please use Object.defineProperty instead.',
-        }, {
-            object: 'Math',
-            property: 'pow',
-            message: 'Use the exponentiation operator (**) instead.',
-        }],
+        'no-restricted-properties': [
+            'error',
+            {
+                object: 'arguments',
+                property: 'callee',
+                message: 'arguments.callee is deprecated',
+            },
+            {
+                property: '__defineGetter__',
+                message: 'Please use Object.defineProperty instead.',
+            },
+            {
+                property: '__defineSetter__',
+                message: 'Please use Object.defineProperty instead.',
+            },
+            {
+                object: 'Math',
+                property: 'pow',
+                message: 'Use the exponentiation operator (**) instead.',
+            },
+        ],
 
         // disallow use of assignment in return statement
         'no-return-assign': 'error',
@@ -231,11 +248,14 @@ module.exports = {
         'no-unmodified-loop-condition': 'off',
 
         // disallow usage of expressions in statement position
-        'no-unused-expressions': ['error', {
-            allowShortCircuit: false,
-            allowTernary: false,
-            allowTaggedTemplates: false,
-        }],
+        'no-unused-expressions': [
+            'error',
+            {
+                allowShortCircuit: false,
+                allowTernary: false,
+                allowTaggedTemplates: false,
+            },
+        ],
 
         // disallow unused labels
         // http://eslint.org/docs/rules/no-unused-labels
@@ -268,7 +288,6 @@ module.exports = {
 
         // require using Error objects as Promise rejection reasons
         // http://eslint.org/docs/rules/prefer-promise-reject-errors
-        // TODO: enable, semver-major
         'prefer-promise-reject-errors': ['off', { allowEmptyReject: true }],
 
         // require use of the second argument for parseInt()
