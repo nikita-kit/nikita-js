@@ -4,9 +4,9 @@ This is our methodology how to write efficient and scalable Javascript for big w
 
 Latest Release: [![GitHub version](https://badge.fury.io/gh/nikita-kit%2Fnikita-js.png)](https://github.com/nikita-kit/nikita-js/releases)
 
-If you want to start a new project from scratch, try [nikita.generator](https://github.com/nikita-kit/generator-nikita).
-If you're interested in HTML patterns, code snippets and best practices, try [nikita.html](https://github.com/nikita-kit/nikita-html).
-If you're interested in CSS patterns, code snippets and best practices, try [nikita.css](https://github.com/nikita-kit/nikita-css).
+If you want to start a new project from scratch, try [nikita.generator](https://github.com/nikita-kit/generator-nikita).  
+If you're interested in HTML patterns, code snippets and best practices, try [nikita.html](https://github.com/nikita-kit/nikita-html).  
+If you're interested in CSS patterns, code snippets and best practices, try [nikita.css](https://github.com/nikita-kit/nikita-css).  
 
 ## Contents
 
