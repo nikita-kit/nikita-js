@@ -4,9 +4,9 @@ This is our methodology how to write efficient and scalable Javascript for big w
 
 Latest Release: [![GitHub version](https://badge.fury.io/gh/nikita-kit%2Fnikita-js.png)](https://github.com/nikita-kit/nikita-js/releases)
 
-If you want to start a new project from scratch, try [nikita.kickstarter](https://github.com/nikita-kit/nikita-kickstarter).
-If you're interested in HTML patterns, code snippets and best practices, try [nikita.html](https://github.com/nikita-kit/nikita-html).
-If you're interested in CSS patterns, code snippets and best practices, try [nikita.css](https://github.com/nikita-kit/nikita-css).
+If you want to start a new project from scratch, try [nikita.generator](https://github.com/nikita-kit/generator-nikita).  
+If you're interested in HTML patterns, code snippets and best practices, try [nikita.html](https://github.com/nikita-kit/nikita-html).  
+If you're interested in CSS patterns, code snippets and best practices, try [nikita.css](https://github.com/nikita-kit/nikita-css).  
 
 ## Contents
 
@@ -17,7 +17,7 @@ However, we changed small things:
  * max line length of 150 characters
  * don't use .bind(this)
  * added a few rules (basic module, logging)
- * removed some minor rules
+ * removed/relaxed some minor rules
  * changed the order to have important sections on top
 
 
@@ -663,41 +663,8 @@ However, we changed small things:
     return arr;
     ```
 
-  <a name="whitespace--padded-blocks"></a>
-  - [3.8](#whitespace--padded-blocks) Do not pad your blocks with blank lines. eslint: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html) 
-
-    ```javascript
-    // bad
-    function bar() {
-
-        console.log(foo);
-
-    }
-
-    // also bad
-    if (baz) {
-
-        console.log(qux);
-    } else {
-        console.log(foo);
-
-    }
-
-    // good
-    function bar() {
-        console.log(foo);
-    }
-
-    // good
-    if (baz) {
-        console.log(qux);
-    } else {
-        console.log(foo);
-    }
-    ```
-
   <a name="whitespace--in-parens"></a>
-  - [3.9](#whitespace--in-parens) Do not add spaces inside parentheses. eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html) 
+  - [3.8](#whitespace--in-parens) Do not add spaces inside parentheses. eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html) 
   
     ```javascript
     // bad
@@ -722,7 +689,7 @@ However, we changed small things:
     ```
 
   <a name="whitespace--in-brackets"></a>
-  - [3.10](#whitespace--in-brackets) Do not add spaces inside brackets. eslint: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html) 
+  - [3.9](#whitespace--in-brackets) Do not add spaces inside brackets. eslint: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html) 
 
     ```javascript
     // bad
@@ -735,7 +702,7 @@ However, we changed small things:
     ```
 
   <a name="whitespace--in-braces"></a>
-  - [3.11](#whitespace--in-braces) Add spaces inside curly braces. eslint: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html) 
+  - [3.10](#whitespace--in-braces) Add spaces inside curly braces. eslint: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html) 
   
     ```javascript
     // bad
@@ -746,7 +713,7 @@ However, we changed small things:
     ```
 
   <a name="whitespace--max-len"></a>
-  - [3.12](#whitespace--max-len) Avoid having lines of code that are longer than 150 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) 
+  - [3.11](#whitespace--max-len) Avoid having lines of code that are longer than 150 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html)
   
     > Why? This ensures readability and maintainability.
 
@@ -776,7 +743,7 @@ However, we changed small things:
     ```
 
   <a name="whitespace--align"></a>
-  - [3.13](#whitespace--align) Do not align variable declarations or properties. eslint: [`no-multi-spaces`](http://eslint.org/docs/rules/no-multi-spaces)
+  - [3.12](#whitespace--align) Do not align variable declarations or properties. eslint: [`no-multi-spaces`](http://eslint.org/docs/rules/no-multi-spaces)
   
     ```javascript
     // bad
