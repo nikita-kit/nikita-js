@@ -1,4 +1,4 @@
-# dev
+# 2.0.0 (2017/10/02)
 
 * updated `eslint` to 4.3.0
 * updated `eslint-plugin-import` to 2.7.0
