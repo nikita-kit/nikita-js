@@ -1,0 +1,50 @@
+{
+    "name": "eslint-config-nikita-react",
+    "license": "CC0-1.0",
+    "homepage": "https://github.com/nikita-kit/nikita-js",
+    "author": "axten (https://github.com/nikita-kit)",
+    "description": "ESLint config following the nikita JavaScript coding guidelines",
+    "keywords": [
+        "nikita",
+        "js",
+        "eslint",
+        "eslintconfig",
+        "config",
+        "react",
+        "jsx",
+        "javascript",
+        "guidelines",
+        "styleguide"
+    ],
+    "main": "index.js",
+    "scripts": {
+        "lint": "eslint . --env node",
+        "lint-fix": "eslint . --env node --fix",
+        "find-rules": "eslint-find-rules --unused --no-error"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/nikita-kit/nikita-js"
+    },
+    "dependencies": {
+        "eslint-config-nikita": ">=2.0.0"
+    },
+    "devDependencies": {
+        "eslint": "^5.9.0",
+        "eslint-find-rules": "^3.3.1",
+        "eslint-plugin-import": "^2.14.0",
+        "eslint-plugin-jsx-a11y": "^6.1.2",
+        "eslint-plugin-promise": "^4.0.1",
+        "eslint-plugin-react": "^7.11.1"
+    },
+    "peerDependencies": {
+        "eslint": "^5.9.0",
+        "eslint-plugin-import": "^2.14.0",
+        "eslint-plugin-jsx-a11y": "^6.1.2",
+        "eslint-plugin-promise": "^4.0.1",
+        "eslint-plugin-react": "^7.11.1"
+    },
+    "engines": {
+        "node": ">= 6"
+    }
+}

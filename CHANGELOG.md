@@ -1,3 +1,12 @@
+# dev
+
+* added react style guide
+* added eslint-config-nikita-react package
+* updated `eslint` to 5.9.0
+* updated `eslint-plugin-import` to 2.14.0
+* updated `eslint-plugin-promise` to 4.0.1
+
+
 # 2.0.0 (2017/10/02)
 
 * updated `eslint` to 4.3.0
