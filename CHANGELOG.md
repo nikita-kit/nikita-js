@@ -1,7 +1,8 @@
 # dev
 
 * added react style guide
-* added eslint-config-nikita-react package
+* added `eslint-config-nikita-react` package
+* packages now depends on node.js >= 6
 * updated `eslint` to 5.9.0
 * updated `eslint-plugin-import` to 2.14.0
 * updated `eslint-plugin-promise` to 4.0.1
@@ -18,7 +19,7 @@
 # 1.0.0 (2017/04/01)
 
 * replaced content by airbnb style guide with modifications
-* added eslint-config-nikita package
+* added `eslint-config-nikita` package
 
 # 0.0.1 (2014/10/20)
 
