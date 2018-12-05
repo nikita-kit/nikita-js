@@ -5,14 +5,14 @@ module.exports = {
     plugins: ['promise'],
 
     rules: {
-        // Enforces the use of catch on un-returned promises.
+    // Enforces the use of catch on un-returned promises.
         'promise/catch-or-return': 'warn',
 
         // Avoid wrapping values in Promise.resolve or Promise.reject when not needed.
         'promise/no-return-wrap': 'warn',
 
         // Enforce consistent param names when creating new promises.
-        'promise/param-names': 'off',
+        'promise/param-names': 'error',
 
         // Return inside each then to create readable and reusable Promise chains.
         'promise/always-return': 'error',
@@ -26,7 +26,7 @@ module.exports = {
         // Avoid using promises inside of callbacks
         'promise/no-promise-in-callback': 'warn',
 
-        // Avoid calling cb() inside of a then() (use nodeify] instead)
+        // Avoid calling cb() inside of a then() (use nodeify instead)
         'promise/no-callback-in-promise': 'warn',
 
         // Avoid creating new promises outside of utility libs (use pify instead)

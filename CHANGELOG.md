@@ -3,10 +3,10 @@
 * added react style guide
 * added `eslint-config-nikita-react` package
 * packages now depends on node.js >= 6
+* updated eslint rules according to airbnb
 * updated `eslint` to 5.9.0
 * updated `eslint-plugin-import` to 2.14.0
 * updated `eslint-plugin-promise` to 4.0.1
-
 
 # 2.0.0 (2017/10/02)
 

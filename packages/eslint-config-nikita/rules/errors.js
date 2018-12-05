@@ -1,17 +1,23 @@
 module.exports = {
     rules: {
-        // Enforce “for” loop update clause moving the counter in the right direction
+    // Enforce “for” loop update clause moving the counter in the right direction
+    // https://eslint.org/docs/rules/for-direction
         'for-direction': 'error',
 
         // Enforces that a return statement is present in property getters
-        'getter-return': 'off',
+        // https://eslint.org/docs/rules/getter-return
+        'getter-return': ['error', { allowImplicit: true }],
+
+        // disallow using an async function as a Promise executor
+        // https://eslint.org/docs/rules/no-async-promise-executor
+        'no-async-promise-executor': 'error',
 
         // Disallow await inside of loops
-        // http://eslint.org/docs/rules/no-await-in-loop
+        // https://eslint.org/docs/rules/no-await-in-loop
         'no-await-in-loop': 'error',
 
         // Disallow comparisons to negative zero
-        // http://eslint.org/docs/rules/no-compare-neg-zero
+        // https://eslint.org/docs/rules/no-compare-neg-zero
         'no-compare-neg-zero': 'error',
 
         // disallow assignment in conditional expressions
@@ -48,18 +54,18 @@ module.exports = {
         'no-ex-assign': 'error',
 
         // disallow double-negation boolean casts in a boolean context
-        // http://eslint.org/docs/rules/no-extra-boolean-cast
+        // https://eslint.org/docs/rules/no-extra-boolean-cast
         'no-extra-boolean-cast': 'error',
 
         // disallow unnecessary parentheses
-        // http://eslint.org/docs/rules/no-extra-parens
+        // https://eslint.org/docs/rules/no-extra-parens
         'no-extra-parens': [
-            'off',
-            'all',
-            {
+            'off', 'all', {
                 conditionalAssign: true,
                 nestedBinaryExpressions: false,
                 returnAssign: false,
+                ignoreJSX: 'all', // delegate to eslint-plugin-react
+                enforceForArrowConditionals: false,
             },
         ],
 
@@ -78,11 +84,15 @@ module.exports = {
         // disallow irregular whitespace outside of strings and comments
         'no-irregular-whitespace': 'error',
 
+        // Disallow characters which are made with multiple code points in character class syntax
+        // https://eslint.org/docs/rules/no-misleading-character-class
+        'no-misleading-character-class': 'error',
+
         // disallow the use of object properties of the global object (Math and JSON) as functions
         'no-obj-calls': 'error',
 
         // disallow use of Object.prototypes builtins directly
-        // http://eslint.org/docs/rules/no-prototype-builtins
+        // https://eslint.org/docs/rules/no-prototype-builtins
         'no-prototype-builtins': 'error',
 
         // disallow multiple spaces in a regular expression literal
@@ -92,36 +102,40 @@ module.exports = {
         'no-sparse-arrays': 'error',
 
         // Disallow template literal placeholder syntax in regular strings
-        // http://eslint.org/docs/rules/no-template-curly-in-string
+        // https://eslint.org/docs/rules/no-template-curly-in-string
         'no-template-curly-in-string': 'error',
 
         // Avoid code that looks like two expressions but is actually one
-        // http://eslint.org/docs/rules/no-unexpected-multiline
+        // https://eslint.org/docs/rules/no-unexpected-multiline
         'no-unexpected-multiline': 'error',
 
         // disallow unreachable statements after a return, throw, continue, or break statement
         'no-unreachable': 'error',
 
         // disallow return/throw/break/continue inside finally blocks
-        // http://eslint.org/docs/rules/no-unsafe-finally
+        // https://eslint.org/docs/rules/no-unsafe-finally
         'no-unsafe-finally': 'error',
 
         // disallow negating the left operand of relational operators
-        // http://eslint.org/docs/rules/no-unsafe-negation
+        // https://eslint.org/docs/rules/no-unsafe-negation
         'no-unsafe-negation': 'error',
         // disallow negation of the left operand of an in expression
         // deprecated in favor of no-unsafe-negation
         'no-negated-in-lhs': 'off',
 
+        // Disallow assignments that can lead to race conditions due to usage of await or yield
+        // https://eslint.org/docs/rules/require-atomic-updates
+        'require-atomic-updates': 'error',
+
         // disallow comparisons with the value NaN
         'use-isnan': 'error',
 
         // ensure JSDoc comments are valid
-        // http://eslint.org/docs/rules/valid-jsdoc
+        // https://eslint.org/docs/rules/valid-jsdoc
         'valid-jsdoc': 'off',
 
         // ensure that the results of typeof are compared against a valid string
-        // http://eslint.org/docs/rules/valid-typeof
+        // https://eslint.org/docs/rules/valid-typeof
         'valid-typeof': ['error', { requireStringLiterals: true }],
     },
 };
