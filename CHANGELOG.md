@@ -2,13 +2,16 @@
 
 * added react style guide
 * added `eslint-config-nikita-react` package
-* packages now depends on node.js >= 6
-* updated eslint rules according to airbnb
-* updated `eslint` to 5.9.0
+* packages now depend on node.js >= 6
+* updated style guide and eslint rules according to airbnb
+* updated `eslint` to 5.10.0
 * updated `eslint-plugin-import` to 2.14.0
 * updated `eslint-plugin-promise` to 4.0.1
+* relaxed rules `prefer-const`, `no-plusplus` and `class-methods-use-this`
+* relaxed react rules `react/prop-types`, `react/jsx-filename-extension`, `react/prefer-stateless-function`, 
+  `react/forbid-prop-types`, `react/no-array-index-key`, `react/sort-comp` and `react/destructuring-assignment`
 
-# 2.0.0 (2017/10/02)
+# 2.0.0 (2017/10/02)`
 
 * updated `eslint` to 4.3.0
 * updated `eslint-plugin-import` to 2.7.0

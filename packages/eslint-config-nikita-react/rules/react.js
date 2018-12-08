@@ -15,7 +15,7 @@ module.exports = {
         'jsx-quotes': ['error', 'prefer-double'],
 
         'class-methods-use-this': [
-            'error', {
+            'off', {
                 exceptMethods: [
                     'render',
                     'getInitialState',
@@ -44,7 +44,7 @@ module.exports = {
         // Forbid certain propTypes (any, array, object)
         // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/forbid-prop-types.md
         'react/forbid-prop-types': [
-            'error', {
+            'off', {
                 forbid: ['any', 'array', 'object'],
                 checkContextTypes: true,
                 checkChildContextTypes: true,
@@ -82,7 +82,7 @@ module.exports = {
 
         // Validate props indentation in JSX
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-indent-props.md
-        'react/jsx-indent-props': ['error', 2],
+        'react/jsx-indent-props': ['error', 4],
 
         // Validate JSX has key prop when in array or iterator
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-key.md
@@ -219,7 +219,7 @@ module.exports = {
 
         // Require stateless functions when not using lifecycle methods, setState or ref
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md
-        'react/prefer-stateless-function': ['error', { ignorePureComponents: true }],
+        'react/prefer-stateless-function': ['off', { ignorePureComponents: true }],
 
         // Prevent missing props validation in a React component definition
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
@@ -227,7 +227,7 @@ module.exports = {
             'error', {
                 ignore: [],
                 customValidators: [],
-                skipUndeclared: false,
+                skipUndeclared: true,
             },
         ],
 
@@ -246,12 +246,13 @@ module.exports = {
         // Enforce component methods order
         // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/sort-comp.md
         'react/sort-comp': [
-            'error', {
+            'off', {
                 order: [
                     'static-methods',
                     'instance-variables',
                     'lifecycle',
                     '/^on.+$/',
+                    '/^handle.+$/',
                     'getters',
                     'setters',
                     '/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/',
@@ -268,10 +269,10 @@ module.exports = {
                         'mixins',
                         'statics',
                         'defaultProps',
+                        'state',
                         'constructor',
                         'getDefaultProps',
                         'getInitialState',
-                        'state',
                         'getChildContext',
                         'componentWillMount',
                         'componentDidMount',
@@ -313,7 +314,7 @@ module.exports = {
 
         // Enforce JSX indentation
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-indent.md
-        'react/jsx-indent': ['error', 2],
+        'react/jsx-indent': ['error', 4],
 
         // Disallow target="_blank" on links
         // https://github.com/yannickcr/eslint-plugin-react/blob/ac102885765be5ff37847a871f239c6703e1c7cc/docs/rules/jsx-no-target-blank.md
@@ -321,7 +322,7 @@ module.exports = {
 
         // only .jsx files may have JSX
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
-        'react/jsx-filename-extension': ['error', { extensions: ['.jsx'] }],
+        'react/jsx-filename-extension': ['error', { extensions: ['.js'] }],
 
         // prevent accidental JS comments from being injected into JSX as text
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-comment-textnodes.md
@@ -390,12 +391,12 @@ module.exports = {
 
         // Prevent usage of Array index in keys
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-array-index-key.md
-        'react/no-array-index-key': 'error',
+        'react/no-array-index-key': 'warn',
 
         // Enforce a defaultProps definition for every prop that is not a required prop
         // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/require-default-props.md
         'react/require-default-props': [
-            'error', {
+            'warn', {
                 forbidDefaultForRequired: true,
             },
         ],
@@ -446,7 +447,7 @@ module.exports = {
 
         // Enforce consistent usage of destructuring assignment of props, state, and context
         // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/destructuring-assignment.md
-        'react/destructuring-assignment': ['error', 'always'],
+        'react/destructuring-assignment': ['off', 'always'],
 
         // Prevent using this.state within a this.setState
         // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/no-access-state-in-setstate.md
@@ -490,7 +491,7 @@ module.exports = {
         },
         react: {
             pragma: 'React',
-            version: '16.0',
+            version: '16.6',
         },
         propWrapperFunctions: [
             'forbidExtraProps', // https://www.npmjs.com/package/airbnb-prop-types
