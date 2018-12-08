@@ -8,6 +8,8 @@ If you want to start a new project from scratch, try [nikita.generator](https://
 If you're interested in HTML patterns, code snippets and best practices, try [nikita.html](https://github.com/nikita-kit/nikita-html).  
 If you're interested in CSS patterns, code snippets and best practices, try [nikita.css](https://github.com/nikita-kit/nikita-css).  
 
+Look [here](https://github.com/nikita-kit/nikita-js/tree/master/react) for our **react style guide** additions.
+
 ## Contents
 
 This part of nikita called `nikita.js` describes our prefered Javascript conding style. 
