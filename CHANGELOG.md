@@ -1,4 +1,4 @@
-#dev
+# 3.1.0 (2019/04/30)
 
 * disabled rule `react/jsx-one-expression-per-line`
 * relaxed rule `object-curly-newline`
