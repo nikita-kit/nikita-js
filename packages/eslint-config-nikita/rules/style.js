@@ -405,8 +405,8 @@ module.exports = {
             'error', {
                 ObjectExpression: { minProperties: 4, multiline: true, consistent: true },
                 ObjectPattern: { minProperties: 4, multiline: true, consistent: true },
-                ImportDeclaration: { minProperties: 4, multiline: true, consistent: true },
-                ExportDeclaration: { minProperties: 4, multiline: true, consistent: true },
+                ImportDeclaration: { minProperties: 7, multiline: true, consistent: true },
+                ExportDeclaration: { minProperties: 7, multiline: true, consistent: true },
             },
         ],
 

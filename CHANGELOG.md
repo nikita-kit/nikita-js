@@ -1,4 +1,9 @@
-# dev
+#dev 
+
+* disabled rule `react/jsx-one-expression-per-line`
+* relaxed rule `object-curly-newline`
+
+# 3.0.0 (2019/02/06)
 
 * added react style guide
 * added `eslint-config-nikita-react` package
@@ -11,7 +16,7 @@
 * relaxed react rules `react/prop-types`, `react/jsx-filename-extension`, `react/prefer-stateless-function`, 
   `react/forbid-prop-types`, `react/no-array-index-key`, `react/sort-comp` and `react/destructuring-assignment`
 
-# 2.0.0 (2017/10/02)`
+# 2.0.0 (2017/10/02)
 
 * updated `eslint` to 4.3.0
 * updated `eslint-plugin-import` to 2.7.0
