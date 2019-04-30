@@ -1,7 +1,8 @@
-#dev 
+#dev
 
 * disabled rule `react/jsx-one-expression-per-line`
 * relaxed rule `object-curly-newline`
+* updated all dependencies
 
 # 3.0.0 (2019/02/06)
 
