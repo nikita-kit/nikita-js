@@ -1,3 +1,8 @@
+# dev
+
+* drop node 6 support
+* updated all dependencies
+
 # 3.1.0 (2019/04/30)
 
 * disabled rule `react/jsx-one-expression-per-line`
