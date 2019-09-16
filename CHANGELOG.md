@@ -1,7 +1,10 @@
 # dev
 
-* drop node 6 support
+* dropped node 6 support
 * updated all dependencies
+* updated style guides and eslint rules according to airbnb
+* relaxed rules `array-bracket-newline` and `array-element-newline`
+* enabled warnings for rule `react/sort-comp`
 
 # 3.1.0 (2019/04/30)
 

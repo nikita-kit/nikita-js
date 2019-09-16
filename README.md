@@ -1,6 +1,6 @@
 # nikita.js
 
-This is our methodology how to write efficient and scalable Javascript for big websites.
+This is our methodology how to write efficient and scalable JavaScript for big websites.
 
 Latest Release: [![GitHub version](https://badge.fury.io/gh/nikita-kit%2Fnikita-js.png)](https://github.com/nikita-kit/nikita-js/releases)
 
@@ -12,7 +12,7 @@ Look [here](https://github.com/nikita-kit/nikita-js/tree/master/react) for our *
 
 ## Contents
 
-This part of nikita called `nikita.js` describes our prefered Javascript conding style. 
+This part of nikita called `nikita.js` describes our prefered JavaScript conding style. 
 This guide is mainly based on the the [airbnb style guide](https://github.com/airbnb/javascript) which offers a great rule set for modern javascript coding. 
 However, we changed small things:
  * indent with 4 spaces
@@ -294,10 +294,10 @@ However, we changed small things:
 
     // best
     const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
+    console.log(has.call(object, key));
     /* or */
     import has from 'has'; // https://www.npmjs.com/package/has
-    // ...
-    console.log(has.call(object, key));
+    console.log(has(object, key));
     ```
 
   <a name="objects--rest-spread"></a>
@@ -419,13 +419,11 @@ However, we changed small things:
     // bad - no returned value means `acc` becomes undefined after the first iteration
     [[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
       const flatten = acc.concat(item);
-      acc[index] = flatten;
     });
 
     // good
     [[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
       const flatten = acc.concat(item);
-      acc[index] = flatten;
       return flatten;
     });
 
@@ -953,7 +951,7 @@ However, we changed small things:
 
     ```javascript
     // bad
-    [1, 2, 3].map(number => {
+    [1, 2, 3].map((number) => {
       const nextNumber = number + 1;
       `A string containing the ${nextNumber}.`;
     });
@@ -2039,7 +2037,8 @@ However, we changed small things:
     ```
 
   <a name="comparison--no-mixed-operators"></a>
-  - [15.8](#comparison--no-mixed-operators) When mixing operators, enclose them in parentheses. The only exception is the standard arithmetic operators (`+`, `-`, `*`, & `/`) since their precedence is broadly understood. eslint: [`no-mixed-operators`](https://eslint.org/docs/rules/no-mixed-operators.html)
+  - [15.8](#comparison--no-mixed-operators) When mixing operators, enclose them in parentheses. The only exception is the standard arithmetic operators: `+`, `-`, and `**` since their precedence is broadly understood. We recommend enclosing `/` and `*` in parentheses because their precedence can be ambiguous when they are mixed.
+  eslint: [`no-mixed-operators`](https://eslint.org/docs/rules/no-mixed-operators.html)
 
     > Why? This improves readability and clarifies the developer’s intention.
 
@@ -2056,11 +2055,14 @@ However, we changed small things:
       return d;
     }
 
+    // bad
+    const bar = a + b / c * d;
+
     // good
     const foo = (a && b < 0) || c > 0 || (d + 1 === 0);
 
     // good
-    const bar = (a ** b) - (5 % d);
+    const bar = a ** b - (5 % d);
 
     // good
     if (a || (b && c)) {
@@ -2068,7 +2070,7 @@ However, we changed small things:
     }
 
     // good
-    const bar = a + b / c * d;
+    const bar = a + (b / c) * d;
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -2654,8 +2656,62 @@ However, we changed small things:
     }
     ```
 
+  <a name="whitespace--no-multiple-blanks"></a>
+  - [19.9](#whitespace--no-multiple-blanks) Do not use multiple blank lines to pad your code. eslint: [`no-multiple-empty-lines`](https://eslint.org/docs/rules/no-multiple-empty-lines)
+
+    <!-- markdownlint-disable MD012 -->
+    ```javascript
+    // bad
+    class Person {
+      constructor(fullName, email, birthday) {
+        this.fullName = fullName;
+
+
+        this.email = email;
+
+
+        this.setAge(birthday);
+      }
+
+
+      setAge(birthday) {
+        const today = new Date();
+
+
+        const age = this.getAge(today, birthday);
+
+
+        this.age = age;
+      }
+
+
+      getAge(today, birthday) {
+        // ..
+      }
+    }
+
+    // good
+    class Person {
+      constructor(fullName, email, birthday) {
+        this.fullName = fullName;
+        this.email = email;
+        this.setAge(birthday);
+      }
+
+      setAge(birthday) {
+        const today = new Date();
+        const age = getAge(today, birthday);
+        this.age = age;
+      }
+
+      getAge(today, birthday) {
+        // ..
+      }
+    }
+    ```
+
   <a name="whitespace--in-parens"></a><a name="18.9"></a>
-  - [19.9](#whitespace--in-parens) Do not add spaces inside parentheses. eslint: [`space-in-parens`](https://eslint.org/docs/rules/space-in-parens.html)
+  - [19.10](#whitespace--in-parens) Do not add spaces inside parentheses. eslint: [`space-in-parens`](https://eslint.org/docs/rules/space-in-parens.html)
 
     ```javascript
     // bad
@@ -2680,7 +2736,7 @@ However, we changed small things:
     ```
 
   <a name="whitespace--in-brackets"></a><a name="18.10"></a>
-  - [19.10](#whitespace--in-brackets) Do not add spaces inside brackets. eslint: [`array-bracket-spacing`](https://eslint.org/docs/rules/array-bracket-spacing.html)
+  - [19.11](#whitespace--in-brackets) Do not add spaces inside brackets. eslint: [`array-bracket-spacing`](https://eslint.org/docs/rules/array-bracket-spacing.html)
 
     ```javascript
     // bad
@@ -2693,7 +2749,7 @@ However, we changed small things:
     ```
 
   <a name="whitespace--in-braces"></a><a name="18.11"></a>
-  - [19.11](#whitespace--in-braces) Add spaces inside curly braces. eslint: [`object-curly-spacing`](https://eslint.org/docs/rules/object-curly-spacing.html)
+  - [19.12](#whitespace--in-braces) Add spaces inside curly braces. eslint: [`object-curly-spacing`](https://eslint.org/docs/rules/object-curly-spacing.html)
 
     ```javascript
     // bad
@@ -2704,7 +2760,7 @@ However, we changed small things:
     ```
 
   <a name="whitespace--max-len"></a><a name="18.12"></a>
-  - [19.12](#whitespace--max-len) Avoid having lines of code that are longer than 150 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. eslint: [`max-len`](https://eslint.org/docs/rules/max-len.html)
+  - [19.13](#whitespace--max-len) Avoid having lines of code that are longer than 150 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. eslint: [`max-len`](https://eslint.org/docs/rules/max-len.html)
 
     > Why? This ensures readability and maintainability.
 
@@ -2734,7 +2790,7 @@ However, we changed small things:
     ```
 
   <a name="whitespace--block-spacing"></a>
-  - [19.13](#whitespace--block-spacing) Require consistent spacing inside an open block token and the next token on the same line. This rule also enforces consistent spacing inside a close block token and previous token on the same line. eslint: [`block-spacing`](https://eslint.org/docs/rules/block-spacing)
+  - [19.14](#whitespace--block-spacing) Require consistent spacing inside an open block token and the next token on the same line. This rule also enforces consistent spacing inside a close block token and previous token on the same line. eslint: [`block-spacing`](https://eslint.org/docs/rules/block-spacing)
 
     ```javascript
     // bad
@@ -2747,7 +2803,7 @@ However, we changed small things:
     ```
 
   <a name="whitespace--comma-spacing"></a>
-  - [19.14](#whitespace--comma-spacing) Avoid spaces before commas and require a space after commas. eslint: [`comma-spacing`](https://eslint.org/docs/rules/comma-spacing)
+  - [19.15](#whitespace--comma-spacing) Avoid spaces before commas and require a space after commas. eslint: [`comma-spacing`](https://eslint.org/docs/rules/comma-spacing)
 
     ```javascript
     // bad
@@ -2760,7 +2816,7 @@ However, we changed small things:
     ```
 
   <a name="whitespace--computed-property-spacing"></a>
-  - [19.15](#whitespace--computed-property-spacing) Enforce spacing inside of computed property brackets. eslint: [`computed-property-spacing`](https://eslint.org/docs/rules/computed-property-spacing)
+  - [19.16](#whitespace--computed-property-spacing) Enforce spacing inside of computed property brackets. eslint: [`computed-property-spacing`](https://eslint.org/docs/rules/computed-property-spacing)
 
     ```javascript
     // bad
@@ -2777,7 +2833,7 @@ However, we changed small things:
     ```
 
   <a name="whitespace--func-call-spacing"></a>
-  - [19.16](#whitespace--func-call-spacing) Avoid spaces between functions and their invocations. eslint: [`func-call-spacing`](https://eslint.org/docs/rules/func-call-spacing)
+  - [19.17](#whitespace--func-call-spacing) Avoid spaces between functions and their invocations. eslint: [`func-call-spacing`](https://eslint.org/docs/rules/func-call-spacing)
 
     ```javascript
     // bad
@@ -2791,7 +2847,7 @@ However, we changed small things:
     ```
 
   <a name="whitespace--key-spacing"></a>
-  - [19.17](#whitespace--key-spacing) Enforce spacing between keys and values in object literal properties. eslint: [`key-spacing`](https://eslint.org/docs/rules/key-spacing)
+  - [19.18](#whitespace--key-spacing) Enforce spacing between keys and values in object literal properties. eslint: [`key-spacing`](https://eslint.org/docs/rules/key-spacing)
 
     ```javascript
     // bad
@@ -2803,24 +2859,33 @@ However, we changed small things:
     ```
 
   <a name="whitespace--no-trailing-spaces"></a>
-  - [19.18](#whitespace--no-trailing-spaces) Avoid trailing spaces at the end of lines. eslint: [`no-trailing-spaces`](https://eslint.org/docs/rules/no-trailing-spaces)
+  - [19.19](#whitespace--no-trailing-spaces) Avoid trailing spaces at the end of lines. eslint: [`no-trailing-spaces`](https://eslint.org/docs/rules/no-trailing-spaces)
 
   <a name="whitespace--no-multiple-empty-lines"></a>
-  - [19.19](#whitespace--no-multiple-empty-lines) Avoid multiple empty lines and only allow one newline at the end of files. eslint: [`no-multiple-empty-lines`](https://eslint.org/docs/rules/no-multiple-empty-lines)
+  - [19.20](#whitespace--no-multiple-empty-lines) Avoid multiple empty lines, only allow one newline at the end of files, and avoid a newline at the beginning of files. eslint: [`no-multiple-empty-lines`](https://eslint.org/docs/rules/no-multiple-empty-lines)
 
     <!-- markdownlint-disable MD012 -->
     ```javascript
-    // bad
+    // bad - multiple empty lines
     var x = 1;
 
 
+    var y = 2;
 
+    // bad - 2+ newlines at end of file
+    var x = 1;
+    var y = 2;
+
+
+    // bad - 1+ newline(s) at beginning of file
+
+    var x = 1;
     var y = 2;
 
     // good
     var x = 1;
-
     var y = 2;
+
     ```
     <!-- markdownlint-enable MD012 -->
 
@@ -3017,7 +3082,7 @@ However, we changed small things:
   - [22.1](#coercion--explicit) Perform type coercion at the beginning of the statement.
 
   <a name="coercion--strings"></a><a name="21.2"></a>
-  - [22.2](#coercion--strings)  Strings: eslint: [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
+  - [22.2](#coercion--strings) Strings: eslint: [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
 
     ```javascript
     // => this.reviewScore = 9;
@@ -3264,7 +3329,7 @@ However, we changed small things:
     ```
 
   <a name="naming--Acronyms-and-Initialisms"></a>
-  - [23.9](#naming--Acronyms-and-Initialisms) Acronyms and initialisms should always be all capitalized, or all lowercased.
+  - [23.9](#naming--Acronyms-and-Initialisms) Acronyms and initialisms should always be all uppercased, or all lowercased.
 
     > Why? Names are for readability, not to appease a computer algorithm.
 
@@ -3304,7 +3369,7 @@ However, we changed small things:
 
     > Why? This is an additional tool to assist in situations where the programmer would be unsure if a variable might ever change. UPPERCASE_VARIABLES are letting the programmer know that they can trust the variable (and its properties) not to change.
     - What about all `const` variables? - This is unnecessary, so uppercasing should not be used for constants within a file. It should be used for exported constants however.
-    - What about exported objects? - Uppercase at the top level of export  (e.g. `EXPORTED_OBJECT.key`) and maintain that all nested properties do not change.
+    - What about exported objects? - Uppercase at the top level of export (e.g. `EXPORTED_OBJECT.key`) and maintain that all nested properties do not change.
 
     ```javascript
     // bad
@@ -3411,7 +3476,7 @@ However, we changed small things:
 ## Events
 
   <a name="events--hash"></a><a name="24.1"></a>
-  - [25.1](#events--hash) When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass an object literal (also known as a "hash")  instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
+  - [25.1](#events--hash) When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass an object literal (also known as a "hash") instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
 
     ```javascript
     // bad
@@ -3514,7 +3579,7 @@ However, we changed small things:
   contains utilities that are functionally broken but remain for legacy reasons.
 
   <a name="standard-library--isnan"></a>
-  - [29.1](#standard-library--isnan) Use `Number.isNaN` instead of global `isNaN`.
+  - [27.1](#standard-library--isnan) Use `Number.isNaN` instead of global `isNaN`.
     eslint: [`no-restricted-globals`](https://eslint.org/docs/rules/no-restricted-globals)
 
     > Why? The global `isNaN` coerces non-numbers to numbers, returning true for anything that coerces to NaN.
@@ -3531,7 +3596,7 @@ However, we changed small things:
     ```
 
   <a name="standard-library--isfinite"></a>
-  - [29.2](#standard-library--isfinite) Use `Number.isFinite` instead of global `isFinite`.
+  - [27.2](#standard-library--isfinite) Use `Number.isFinite` instead of global `isFinite`.
     eslint: [`no-restricted-globals`](https://eslint.org/docs/rules/no-restricted-globals)
 
     > Why? The global `isFinite` coerces non-numbers to numbers, returning true for anything that coerces to a finite number.
@@ -3552,12 +3617,12 @@ However, we changed small things:
 
   - [On Layout & Web Performance](https://www.kellegous.com/j/2013/01/26/layout-performance/)
   - [String vs Array Concat](https://jsperf.com/string-vs-array-concat/2)
-  - [Try/Catch Cost In a Loop](https://jsperf.com/try-catch-in-loop-cost)
+  - [Try/Catch Cost In a Loop](https://jsperf.com/try-catch-in-loop-cost/12)
   - [Bang Function](https://jsperf.com/bang-function)
-  - [jQuery Find vs Context, Selector](https://jsperf.com/jquery-find-vs-context-sel/13)
+  - [jQuery Find vs Context, Selector](https://jsperf.com/jquery-find-vs-context-sel/164)
   - [innerHTML vs textContent for script text](https://jsperf.com/innerhtml-vs-textcontent-for-script-text)
-  - [Long String Concatenation](https://jsperf.com/ya-string-concat)
-  - [Are Javascript functions like `map()`, `reduce()`, and `filter()` optimized for traversing arrays?](https://www.quora.com/JavaScript-programming-language-Are-Javascript-functions-like-map-reduce-and-filter-already-optimized-for-traversing-array/answer/Quildreen-Motta)
+  - [Long String Concatenation](https://jsperf.com/ya-string-concat/38)
+  - [Are JavaScript functions like `map()`, `reduce()`, and `filter()` optimized for traversing arrays?](https://www.quora.com/JavaScript-programming-language-Are-Javascript-functions-like-map-reduce-and-filter-already-optimized-for-traversing-array/answer/Quildreen-Motta)
   - Loading...
 
 **[⬆ back to top](#table-of-contents)**

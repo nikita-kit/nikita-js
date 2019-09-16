@@ -6,6 +6,7 @@ module.exports = {
         './rules/strict',
         './rules/style',
         './rules/variables',
+        './rules/node',
         './rules/imports',
     ].map(require.resolve),
     parserOptions: {

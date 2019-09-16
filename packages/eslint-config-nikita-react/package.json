@@ -27,22 +27,24 @@
         "url": "https://github.com/nikita-kit/nikita-js"
     },
     "dependencies": {
-        "eslint-config-nikita": "^3.0.0"
+        "eslint-config-nikita": "^4.0.0"
     },
     "devDependencies": {
-        "eslint": "^6.3.0",
+        "eslint": "^6.4.0",
         "eslint-find-rules": "^3.4.0",
         "eslint-plugin-import": "^2.18.2",
         "eslint-plugin-jsx-a11y": "^6.2.3",
         "eslint-plugin-promise": "^4.2.1",
-        "eslint-plugin-react": "^7.14.3"
+        "eslint-plugin-react": "^7.14.3",
+        "eslint-plugin-react-hooks": "^2.0.1"
     },
     "peerDependencies": {
-        "eslint": "^6.3.0",
+        "eslint": "^6.4.0",
         "eslint-plugin-import": "^2.18.2",
         "eslint-plugin-jsx-a11y": "^6.2.3",
         "eslint-plugin-promise": "^4.2.1",
-        "eslint-plugin-react": "^7.14.3"
+        "eslint-plugin-react": "^7.14.3",
+        "eslint-plugin-react-hooks": "^2.0.1"
     },
     "engines": {
         "node": ">= 8.10"

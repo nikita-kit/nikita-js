@@ -1,7 +1,7 @@
 module.exports = {
     rules: {
-    // Enforce “for” loop update clause moving the counter in the right direction
-    // https://eslint.org/docs/rules/for-direction
+        // Enforce “for” loop update clause moving the counter in the right direction
+        // https://eslint.org/docs/rules/for-direction
         'for-direction': 'error',
 
         // Enforces that a return statement is present in property getters
@@ -59,15 +59,13 @@ module.exports = {
 
         // disallow unnecessary parentheses
         // https://eslint.org/docs/rules/no-extra-parens
-        'no-extra-parens': [
-            'off', 'all', {
-                conditionalAssign: true,
-                nestedBinaryExpressions: false,
-                returnAssign: false,
-                ignoreJSX: 'all', // delegate to eslint-plugin-react
-                enforceForArrowConditionals: false,
-            },
-        ],
+        'no-extra-parens': ['off', 'all', {
+            conditionalAssign: true,
+            nestedBinaryExpressions: false,
+            returnAssign: false,
+            ignoreJSX: 'all', // delegate to eslint-plugin-react
+            enforceForArrowConditionals: false,
+        }],
 
         // disallow unnecessary semicolons
         'no-extra-semi': 'error',

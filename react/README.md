@@ -1,13 +1,13 @@
 # nikita.js react
 
-This is our methodology how to write efficient and scalable Javascript for react apps.
+This is our methodology how to write efficient and scalable JavaScript for react apps.
 
 Latest Release: [![GitHub version](https://badge.fury.io/gh/nikita-kit%2Fnikita-js.png)](https://github.com/nikita-kit/nikita-js/releases)
 
 
 ## Contents
 
-This part of nikita called `nikita.js/react` describes our prefered Javascript conding style for react. 
+This part of nikita called `nikita.js/react` describes our prefered JavaScript conding style for react. 
 This guide is mainly based on the the [airbnb style guide](https://github.com/airbnb/javascript/tree/master/react) which offers a great rule set for modern javascript coding. 
 However, we changed small things:
  * indent with 4 spaces
@@ -94,7 +94,7 @@ However, we changed small things:
 ## Naming
 
   - **Extensions**: Use `.js` extension for React components. eslint: [`react/jsx-filename-extension`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md)
-  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
+  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.js`.
   - **Reference Naming**: Use PascalCase for React components and camelCase for their instances. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
     ```jsx
@@ -111,7 +111,7 @@ However, we changed small things:
     const reservationItem = <ReservationCard />;
     ```
 
-  - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
+  - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.js` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.js` as the filename and use the directory name as the component name:
 
     ```jsx
     // bad
@@ -192,8 +192,8 @@ However, we changed small things:
 
     // good
     <Foo
-      superLongParam="bar"
-      anotherSuperLongParam="baz"
+        superLongParam="bar"
+        anotherSuperLongParam="baz"
     />
 
     // if props fit in one line then keep it on the same line
@@ -201,10 +201,10 @@ However, we changed small things:
 
     // children get indented normally
     <Foo
-      superLongParam="bar"
-      anotherSuperLongParam="baz"
+        superLongParam="bar"
+        anotherSuperLongParam="baz"
     >
-      <Quux />
+        <Quux />
     </Foo>
 
     // bad
@@ -220,7 +220,7 @@ However, we changed small things:
 
     // good
     {showButton && (
-      <Button />
+        <Button />
     )}
 
     // good
@@ -388,10 +388,57 @@ We don’t recommend using indexes for keys if the order of items may change.
   ))}
   ```
 
+  - Always define explicit defaultProps for all non-required props.
+
+  > Why? propTypes are a form of documentation, and providing defaultProps means the reader of your code doesn’t have to assume as much. In addition, it can mean that your code can omit certain type checks.
+
+  ```jsx
+  // bad
+  function SFC({ foo, bar, children }) {
+    return <div>{foo}{bar}{children}</div>;
+  }
+  SFC.propTypes = {
+    foo: PropTypes.number.isRequired,
+    bar: PropTypes.string,
+    children: PropTypes.node,
+  };
+
+  // good
+  function SFC({ foo, bar, children }) {
+    return <div>{foo}{bar}{children}</div>;
+  }
+  SFC.propTypes = {
+    foo: PropTypes.number.isRequired,
+    bar: PropTypes.string,
+    children: PropTypes.node,
+  };
+  SFC.defaultProps = {
+    bar: '',
+    children: null,
+  };
+  ```
+
   - Use spread props sparingly.
   > Why? Otherwise you’re more likely to pass unnecessary props down to components. And for React v15.6.1 and older, you could [pass invalid HTML attributes to the DOM](https://reactjs.org/blog/2017/09/08/dom-attributes-in-react-16.html).
 
   Exceptions:
+
+  - HOCs that proxy down props and hoist propTypes
+
+  ```jsx
+  function HOC(WrappedComponent) {
+    return class Proxy extends React.Component {
+      Proxy.propTypes = {
+        text: PropTypes.string,
+        isLoading: PropTypes.bool
+      };
+
+      render() {
+        return <WrappedComponent {...this.props} />
+      }
+    }
+  }
+  ```
 
   - Spreading objects with known, explicit props. This can be particularly useful when testing React components with Mocha’s beforeEach construct.
 
@@ -412,13 +459,13 @@ We don’t recommend using indexes for keys if the order of items may change.
   ```jsx
   // bad
   render() {
-    const { irrelevantProp, ...relevantProps  } = this.props;
+    const { irrelevantProp, ...relevantProps } = this.props;
     return <WrappedComponent {...this.props} />
   }
 
   // good
   render() {
-    const { irrelevantProp, ...relevantProps  } = this.props;
+    const { irrelevantProp, ...relevantProps } = this.props;
     return <WrappedComponent {...relevantProps} />
   }
   ```
@@ -437,6 +484,15 @@ We don’t recommend using indexes for keys if the order of items may change.
     <Foo
       ref={(ref) => { this.myRef = ref; }}
     />
+
+    // best
+    constructor(props) {
+      super(props);
+      this.myRef = React.createRef();
+    }
+    render() {
+      return <div ref={this.myRef} />;
+    }
     ```
 
 ## Parentheses
@@ -496,7 +552,7 @@ We don’t recommend using indexes for keys if the order of items may change.
 
 ## Methods
 
-  - Use arrow functions to close over local variables.
+  - Use arrow functions to close over local variables. It is handy when you need to pass additional data to an event handler. Although, make sure they [do not massively hurt performance](https://www.bignerdranch.com/blog/choosing-the-best-approach-for-react-event-handlers/), in particular when passed to custom components that might be PureComponents, because they will trigger a possibly needless rerender every time.
 
     ```jsx
     function ItemList(props) {
@@ -505,7 +561,7 @@ We don’t recommend using indexes for keys if the order of items may change.
           {props.items.map((item, index) => (
             <Item
               key={item.key}
-              onClick={() => doSomethingWith(item.name, index)}
+              onClick={(event) => { doSomethingWith(event, item.name, index); }}
             />
           ))}
         </ul>

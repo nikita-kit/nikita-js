@@ -246,13 +246,12 @@ module.exports = {
         // Enforce component methods order
         // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/sort-comp.md
         'react/sort-comp': [
-            'off', {
+            'warn', {
                 order: [
                     'static-methods',
                     'instance-variables',
                     'lifecycle',
                     '/^on.+$/',
-                    '/^handle.+$/',
                     'getters',
                     'setters',
                     '/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/',
@@ -269,18 +268,25 @@ module.exports = {
                         'mixins',
                         'statics',
                         'defaultProps',
-                        'state',
                         'constructor',
                         'getDefaultProps',
                         'getInitialState',
+                        'state',
                         'getChildContext',
+                        'getDerivedStateFromProps',
                         'componentWillMount',
+                        'UNSAFE_componentWillMount',
                         'componentDidMount',
                         'componentWillReceiveProps',
+                        'UNSAFE_componentWillReceiveProps',
                         'shouldComponentUpdate',
                         'componentWillUpdate',
+                        'UNSAFE_componentWillUpdate',
+                        'getSnapshotBeforeUpdate',
                         'componentDidUpdate',
+                        'componentDidCatch',
                         'componentWillUnmount',
+                        'componentDidCatch',
                     ],
                     rendering: [
                         '/^render.+$/',
@@ -320,7 +326,7 @@ module.exports = {
         // https://github.com/yannickcr/eslint-plugin-react/blob/ac102885765be5ff37847a871f239c6703e1c7cc/docs/rules/jsx-no-target-blank.md
         'react/jsx-no-target-blank': ['error', { enforceDynamicLinks: 'always' }],
 
-        // only .jsx files may have JSX
+        // only .js files may have JSX
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
         'react/jsx-filename-extension': ['error', { extensions: ['.js'] }],
 
@@ -443,7 +449,7 @@ module.exports = {
 
         // One JSX Element Per Line
         // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/jsx-one-expression-per-line.md
-        'react/jsx-one-expression-per-line': 0,
+        'react/jsx-one-expression-per-line': ['off', { allow: 'single-child' }],
 
         // Enforce consistent usage of destructuring assignment of props, state, and context
         // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/destructuring-assignment.md
@@ -481,6 +487,43 @@ module.exports = {
         // Prevent usage of UNSAFE_ methods
         // https://github.com/yannickcr/eslint-plugin-react/blob/157cc932be2cfaa56b3f5b45df6f6d4322a2f660/docs/rules/no-unsafe.md
         'react/no-unsafe': 'off',
+
+        // Enforce shorthand or standard form for React fragments
+        // https://github.com/yannickcr/eslint-plugin-react/blob/bc976b837abeab1dffd90ac6168b746a83fc83cc/docs/rules/jsx-fragments.md
+        'react/jsx-fragments': ['error', 'element'],
+
+        // Enforce linebreaks in curly braces in JSX attributes and expressions.
+        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-newline.md
+        'react/jsx-curly-newline': [
+            'error', {
+                multiline: 'consistent',
+                singleline: 'consistent',
+            },
+        ],
+
+        // Enforce state initialization style
+        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/state-in-constructor.md
+        // TODO: set to "never" once babel-preset-airbnb supports public class fields
+        'react/state-in-constructor': ['off', 'always'],
+
+        // Enforces where React component static properties should be positioned
+        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/static-property-placement.md
+        // TODO: set to "static public field" once babel-preset-airbnb supports public class fields
+        'react/static-property-placement': ['off', 'property assignment'],
+
+        // Disallow JSX props spreading
+        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md
+        'react/jsx-props-no-spreading': [
+            'error', {
+                html: 'enforce',
+                custom: 'ignore',
+                exceptions: [],
+            },
+        ],
+
+        // Enforce that props are read-only
+        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-read-only-props.md
+        'react/prefer-read-only-props': 'off',
     },
 
     settings: {
@@ -491,7 +534,7 @@ module.exports = {
         },
         react: {
             pragma: 'React',
-            version: '16.6',
+            version: 'detect',
         },
         propWrapperFunctions: [
             'forbidExtraProps', // https://www.npmjs.com/package/airbnb-prop-types

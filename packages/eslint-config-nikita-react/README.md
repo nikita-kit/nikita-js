@@ -3,7 +3,7 @@
 This package provides nikitas .eslintrc as an extensible shared config.
 
 Our default export contains all of our ESLint rules, including React. 
-It requires `eslint`, `eslint-plugin-import`, `eslint-plugin-promise`, `eslint-plugin-react` and `eslint-plugin-jsx-a11y`.
+It requires `eslint`, `eslint-plugin-import`, `eslint-plugin-promise`, `eslint-plugin-react`, `eslint-plugin-react-hooks` and `eslint-plugin-jsx-a11y`.
 
 
 ## Usage
