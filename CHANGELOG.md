@@ -1,3 +1,7 @@
+# dev
+
+* set severity for rule `import/order` from warn to error because of autofixing
+
 # 4.0.0 (2019/09/16)
 
 * dropped node 6 support
