@@ -2,6 +2,7 @@
 
 * moved static member declaration to class definition
 * added static variables to config of rule `react/sort-comp` 
+* updated all dependencies
 
 # 4.0.1 (2019/09/19)
 
