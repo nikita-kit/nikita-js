@@ -644,6 +644,7 @@ We don’t recommend using indexes for keys if the order of items may change.
 
   - Ordering for `class extends React.Component`:
 
+  1. optional `static` variables
   1. optional `static` methods
   1. `constructor`
   1. `getChildContext`
@@ -665,17 +666,17 @@ We don’t recommend using indexes for keys if the order of items may change.
     import React from 'react';
     import PropTypes from 'prop-types';
 
-    const propTypes = {
-      id: PropTypes.number.isRequired,
-      url: PropTypes.string.isRequired,
-      text: PropTypes.string,
-    };
-
-    const defaultProps = {
-      text: 'Hello World',
-    };
-
     class Link extends React.Component {
+      static propTypes = {
+        id: PropTypes.number.isRequired,
+        url: PropTypes.string.isRequired,
+        text: PropTypes.string,
+      }
+
+      static defaultProps = {
+        text: 'Hello World',
+      }
+
       static methodsAreOk() {
         return true;
       }
@@ -684,9 +685,6 @@ We don’t recommend using indexes for keys if the order of items may change.
         return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>;
       }
     }
-
-    Link.propTypes = propTypes;
-    Link.defaultProps = defaultProps;
 
     export default Link;
     ```

@@ -1,3 +1,8 @@
+# dev
+
+* moved static member declaration to class definition
+* added static variables to config of rule `react/sort-comp` 
+
 # 4.0.1 (2019/09/19)
 
 * set severity for rule `import/order` from warn to error because of autofixing
