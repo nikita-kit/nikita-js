@@ -1,4 +1,4 @@
-# dev
+# 4.1.1 (2020/04/12)
 
 * relaxed rule `object-curly-newline`
 
