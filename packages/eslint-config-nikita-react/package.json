@@ -27,7 +27,7 @@
         "url": "https://github.com/nikita-kit/nikita-js"
     },
     "dependencies": {
-        "eslint-config-nikita": "^4.1.1"
+        "eslint-config-nikita": "^5.0.0"
     },
     "devDependencies": {
         "eslint": "^7.9.0",
