@@ -36,6 +36,6 @@
         "eslint-plugin-promise": "^4.2.1"
     },
     "engines": {
-        "node": ">= 8.12"
+        "node": ">= 10.12.0"
     }
 }
