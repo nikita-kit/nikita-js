@@ -1,3 +1,8 @@
+# dev
+
+* dropped node 8 support
+* updated all dependencies
+
 # 4.1.1 (2020/04/12)
 
 * relaxed rule `object-curly-newline`
